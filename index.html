@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELVIA INFOTECH - Panel Expired</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1557683311-eac922347aa1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .pulse { animation: pulse 2s infinite; }
+        .logo-shadow {
+            filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1));
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-blue-900 to-purple-900">
+    <div class="glass rounded-3xl overflow-hidden shadow-2xl max-w-md w-full mx-auto">
+        <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-8 text-white relative">
+            <div class="absolute top-4 left-4">
+                <svg class="w-12 h-12 logo-shadow" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="48" stroke="white" stroke-width="4"/>
+                    <path d="M30 70V30L70 50L30 70Z" fill="white"/>
+                </svg>
+            </div>
+            <div class="text-center mb-4 pt-8">
+                <i class="fas fa-exclamation-triangle text-6xl mb-6 pulse"></i>
+                <h1 class="text-4xl font-bold text-shadow">Panel Expired</h1>
+            </div>
+        </div>
+        <div class="p-8 bg-white bg-opacity-95">
+            <h2 class="text-2xl font-semibold text-center text-gray-800 mb-4">ELVIA INFOTECH</h2>
+            <p class="text-gray-700 mb-8 text-center text-lg leading-relaxed">
+                Your panel has been terminated due to a payment issue. Please contact our support team for immediate assistance and to restore your services.
+            </p>
+            <a href="https://wa.me/912269718563" class="block bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-6 rounded-full text-center transition duration-300 transform hover:scale-105 hover:shadow-lg text-lg">
+                <i class="fab fa-whatsapp mr-2"></i>
+                Contact Support on WhatsApp
+            </a>
+        </div>
+        <div class="bg-gray-100 p-4 text-center">
+            <p class="text-sm text-gray-600">&copy; 2023 ELVIA INFOTECH. All rights reserved.</p>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.glass').addEventListener('mousemove', (e) => {
+            const glass = e.currentTarget;
+            const { left, top, width, height } = glass.getBoundingClientRect();
+            const x = (e.clientX - left) / width;
+            const y = (e.clientY - top) / height;
+            
+            const xOffset = (x - 0.5) * 20;
+            const yOffset = (y - 0.5) * 20;
+            
+            glass.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            glass.style.transition = 'transform 0.2s ease-out';
+        });
+
+        document.querySelector('.glass').addEventListener('mouseleave', () => {
+            const glass = document.querySelector('.glass');
+            glass.style.transform = 'translate(0, 0)';
+            glass.style.transition = 'transform 0.5s ease-out';
+        });
+    </script>
+</body>
+</html>
